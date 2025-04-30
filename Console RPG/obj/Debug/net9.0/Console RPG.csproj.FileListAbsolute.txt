@@ -1,0 +1,14 @@
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\bin\Debug\net9.0\Console RPG.exe
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\bin\Debug\net9.0\Console RPG.deps.json
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\bin\Debug\net9.0\Console RPG.runtimeconfig.json
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\bin\Debug\net9.0\Console RPG.dll
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\bin\Debug\net9.0\Console RPG.pdb
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.AssemblyInfoInputs.cache
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.AssemblyInfo.cs
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.csproj.CoreCompileInputs.cache
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.dll
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\refint\Console RPG.dll
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.pdb
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.genruntimeconfig.cache
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\ref\Console RPG.dll
