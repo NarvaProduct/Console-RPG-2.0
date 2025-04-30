@@ -15,30 +15,38 @@ public class Tools
         {
             optionListString = optionListString + "\n" + i + ". " + options[i];
         }
-        userChoice = ReadInt(min: 0, max: numOptions, prompt: optionListString, errorMsg: "Invalid choice, please select one of the options");
+
+        userChoice = ReadInt(
+            min: 0,
+            max: numOptions,
+            prompt: optionListString,
+            errorMsg: "Invalid choice, please select one of the options");
 
 
         return userChoice;
     }
     // - Method for reading strings -
-    public static string ReadString(string prompt = "Please enter a string", string errorMsg = "Invalid entry")
+    // showError will be true only if checkInt returns an error
+    // Uses lots of console methods
+    public static string ReadString(
+        string prompt = "Please enter a string",
+        string errorMsg = "Invalid entry",
+        bool showError = false)
     {
         string inputString;
 
-        Console.Clear();
-        Console.WriteLine(prompt);
-        inputString = Console.ReadLine();
-        if (inputString == null || inputString == "")
+        ClearConsole();
+        OutputHandler(prompt);
+        if (showError) OutputHandler(errorMsg);
+        inputString = InputHandler();
+        while (inputString == null || inputString == "")
         {
-            do
-            {
-                Console.Clear();
-                Console.WriteLine(errorMsg);
-                inputString = Console.ReadLine();
-            } while (inputString == null || inputString == "");
+            ClearConsole();
+            OutputHandler(prompt);
+            OutputHandler(errorMsg);
+            inputString = InputHandler();
         }
-        Console.Clear();
-
+        ClearConsole();
         return inputString;
     }
     // - Method for reading integers -
@@ -52,17 +60,29 @@ public class Tools
         string inputString;
         int inputInt;
 
-        Console.Clear();
-        inputString = ReadString(prompt, errorMsg);
+        inputString = ReadString(prompt, errorMsg, false);
         if (!int.TryParse(inputString, out inputInt) || inputInt < min || inputInt > max)
         {
             do
             {
-                Console.Clear();
-                Console.WriteLine(errorMsg);
-                inputString = ReadString(prompt, errorMsg);
+                inputString = ReadString(prompt, errorMsg, true);
             } while (!int.TryParse(inputString, out inputInt) || inputInt < min || inputInt > max);
         }
         return inputInt;
+    }
+    public static void ClearConsole()
+    {
+        if (!Console.IsOutputRedirected)
+        {
+            Console.Clear();
+        }
+    }
+    public static string InputHandler()
+    {
+        return Console.ReadLine();
+    }
+    public static void OutputHandler(string message)
+    {
+        Console.WriteLine(message);
     }
 }
