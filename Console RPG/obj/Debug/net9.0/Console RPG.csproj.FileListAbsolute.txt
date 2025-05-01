@@ -12,3 +12,4 @@ C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\ref
 C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.pdb
 C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.genruntimeconfig.cache
 C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\ref\Console RPG.dll
+C:\Users\explo\Documents\GitHub\Console-RPG-2.0\Console RPG\obj\Debug\net9.0\Console RPG.sourcelink.json
