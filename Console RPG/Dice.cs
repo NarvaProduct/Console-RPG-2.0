@@ -25,7 +25,8 @@ public class Dice
             msg: $"The dice rolled a {diceResult}!",
             secondaryMsg: "Press enter to continue",
             showSecondary: true,
-            waitForKey: true);
+            waitForKey: true
+            );
 
         return diceResult;
     }

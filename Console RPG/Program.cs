@@ -5,7 +5,14 @@ public class Program
     
     public static void Main(string[] args)
     {
-        GameMenu.MainGameMenu();
-        //Dice.RollDCustom(6);
+        while (true)
+        {
+            int userInput = GameMenu.MainGameMenu();
+            if (userInput == 5) Dice.RollDCustom(6);
+            else break;
+        }
+
+
+        
     }
 }

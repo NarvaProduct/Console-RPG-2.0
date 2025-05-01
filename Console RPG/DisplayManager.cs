@@ -28,7 +28,6 @@ public class DisplayManager
         if (showError) Console.WriteLine(errorMsg);
         if(!keyEntry) userInput = Console.ReadLine();
         if (keyEntry) userInput = ReadKey();
-        ClearConsole();
 
         return userInput;
     }

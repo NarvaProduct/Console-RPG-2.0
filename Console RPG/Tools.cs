@@ -36,7 +36,7 @@ public class Tools
         bool keyEntry = false
         )
     {
-        string inputString = "";
+        string inputString;
         int inputInt;
 
         inputString = ReadString(
