@@ -20,7 +20,8 @@ public class Tools
             min: 0,
             max: numOptions,
             prompt: optionListString,
-            errorMsg: "Invalid choice, please select one of the options");
+            errorMsg: "Invalid choice, please select one of the options"
+            );
 
         return userChoice;
     }
@@ -30,8 +31,9 @@ public class Tools
     // + Decide how to handle ClearConsole() when transitioning to a GUI
     public static string ReadString(
         string prompt = "Please enter a string",
-        string errorMsg = "Invalid entry",
-        bool showError = false)
+        string errorMsg = "Invalid string entry",
+        bool showError = false
+        )
     {
         string inputString;
 
@@ -52,11 +54,13 @@ public class Tools
     }
     // - Method for reading integers -
     // There are default messages for the prompt and the error message
+    // min and max are for defining the allowed range of integers for the user to enter
     public static int ReadInt(
         int min,
         int max,
         string prompt = "Please enter an integer",
-        string errorMsg = "Invalid entry")
+        string errorMsg = "Invalid integer entry"
+        )
     {
         string inputString;
         int inputInt;
@@ -71,7 +75,36 @@ public class Tools
         }
         return inputInt;
     }
-    // - Method for allowing Console.Clear() in debug mode -
+    // - Method for reading a boolean -
+    public static bool ReadBool(
+        string prompt = "Please enter a boolean option",
+        string errorMsg = "Invalid boolean entry"
+    )
+    {
+        int inputInt;
+        bool inputBool;
+
+        inputInt = ReadInt(
+            min: 0,
+            max: 1,
+            prompt: prompt,
+            errorMsg: errorMsg
+        );
+        switch (inputInt)
+        {
+            case 0:
+                inputBool = false;
+                return inputBool;
+            case 1:
+                inputBool = true;
+                return inputBool;
+            default:
+                OutputHandler("An error has occured. Returning false.");
+                inputBool = false;
+                return inputBool;
+        }
+    }
+    // - Method for skipping Console.Clear() in debug mode -
     public static void ClearConsole()
     {
         if (!Console.IsOutputRedirected)
