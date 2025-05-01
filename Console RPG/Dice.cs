@@ -1,22 +1,25 @@
-//
 public class Dice
 {
+    // - Method for rolling a custom sided dice -
     public static int RollDCustom(int amountSides)
     {
-        Tools.ClearConsole();
+        string diceRollPrompt = $"Rolling a {amountSides} sided dice!";
+        string loadingAnimation = "";
+
         Random random = new Random();
         int diceResult = random.Next(amountSides);
 
-        Tools.OutputHandler($"Rolling a {amountSides} sided dice!");
-        for (int i = 0; i <= 3; i++)
+        for (int i = 0; i <= 3; i++) // Waits 3 seconds before result is displayed
         {
             Thread.Sleep(1000);
-            Tools.OutputHandler(".");
+            loadingAnimation = loadingAnimation + ".";
+            DisplayManager.DisplayText(
+                diceRollPrompt,
+                loadingAnimation,
+                showSecondary: true);
         }
-        Tools.OutputHandler($"\nThe dice rolled a {diceResult}!");
-        Tools.OutputHandler("Press enter to continue");
-        Tools.CharInputHandler();
-        Tools.ClearConsole();
+
+        DisplayManager.DisplayPrompt($"\nThe dice rolled a {diceResult}!", "Press enter to continue");
 
         return diceResult;
     }

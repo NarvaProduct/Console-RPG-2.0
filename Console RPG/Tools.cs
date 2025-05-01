@@ -3,8 +3,6 @@ public class Tools
 {
     // - Method for reading strings -
     // showError will be true only if checkInt returns an error
-    // To do: 
-    // + Move the I/O handling to another class
     public static string ReadString(
         string prompt = "Please enter a string",
         string errorMsg = "Invalid string entry",
@@ -13,20 +11,17 @@ public class Tools
     {
         string inputString;
 
-        ClearConsole();
-        OutputHandler(prompt);
-        if (showError) OutputHandler(errorMsg);
-        inputString = StringInputHandler();
-        while (inputString == null || inputString == "")
+        do
         {
-            ClearConsole();
-            OutputHandler(prompt);
-            OutputHandler(errorMsg);
-            inputString = StringInputHandler();
-        }
-        ClearConsole();
+            inputString = DisplayManager.DisplayRequest(
+            request: prompt,
+            errorMsg: errorMsg,
+            showError: showError
+        );
+        } while (inputString == null || inputString == "");
 
         return inputString;
+
     }
     // - Method for reading integers -
     // There are default messages for the prompt and the error message
@@ -52,6 +47,8 @@ public class Tools
         return inputInt;
     }
     // - Method for reading a boolean -
+    // To Do:
+    // + Change the default case to not return false. Maybe don't use a switch?
     public static bool ReadBool(
         string prompt = "Please enter 1 (Yes) or 0 (No)",
         string errorMsg = "Invalid boolean entry"
@@ -75,17 +72,9 @@ public class Tools
                 inputBool = true;
                 return inputBool;
             default:
-                OutputHandler("An error has occured. Returning false.");
+                DisplayManager.DisplayPrompt("An error has occured. Returning false.");
                 inputBool = false;
                 return inputBool;
-        }
-    }
-    // - Method for skipping Console.Clear() in debug mode -
-    public static void ClearConsole()
-    {
-        if (!Console.IsOutputRedirected)
-        {
-            Console.Clear();
         }
     }
     // - Method for decoupling main game logic from UI elements -
