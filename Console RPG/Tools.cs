@@ -22,12 +22,12 @@ public class Tools
             prompt: optionListString,
             errorMsg: "Invalid choice, please select one of the options");
 
-
         return userChoice;
     }
     // - Method for reading strings -
     // showError will be true only if checkInt returns an error
-    // Uses lots of console methods
+    // To do: 
+    // + Decide how to handle ClearConsole() when transitioning to a GUI
     public static string ReadString(
         string prompt = "Please enter a string",
         string errorMsg = "Invalid entry",
@@ -47,6 +47,7 @@ public class Tools
             inputString = InputHandler();
         }
         ClearConsole();
+
         return inputString;
     }
     // - Method for reading integers -
@@ -70,6 +71,7 @@ public class Tools
         }
         return inputInt;
     }
+    // - Method for allowing Console.Clear() in debug mode -
     public static void ClearConsole()
     {
         if (!Console.IsOutputRedirected)
@@ -77,10 +79,12 @@ public class Tools
             Console.Clear();
         }
     }
+    // - Method for decoupling main game logic from UI elements -
     public static string InputHandler()
     {
         return Console.ReadLine();
     }
+    // - Method for decoupling main game logic from UI elements -
     public static void OutputHandler(string message)
     {
         Console.WriteLine(message);
