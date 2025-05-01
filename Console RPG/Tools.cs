@@ -6,17 +6,19 @@ public class Tools
     public static string ReadString(
         string prompt = "Please enter a string",
         string errorMsg = "Invalid string entry",
-        bool showError = false
+        bool showError = false,
+        bool keyEntry = false
         )
     {
         string inputString;
 
         do
         {
-            inputString = DisplayManager.DisplayRequest(
+            inputString = DisplayManager.AskUser(
             request: prompt,
             errorMsg: errorMsg,
-            showError: showError
+            showError: showError,
+            keyEntry: keyEntry
         );
         } while (inputString == null || inputString == "");
 
@@ -30,18 +32,29 @@ public class Tools
         int min,
         int max,
         string prompt = "Please enter an integer",
-        string errorMsg = "Invalid integer entry"
+        string errorMsg = "Invalid integer entry",
+        bool keyEntry = false
         )
     {
-        string inputString;
+        string inputString = "";
         int inputInt;
 
-        inputString = ReadString(prompt, errorMsg, false);
+        inputString = ReadString(
+            prompt: prompt,
+            errorMsg: errorMsg,
+            showError: false,
+            keyEntry: keyEntry);
+
         if (!int.TryParse(inputString, out inputInt) || inputInt < min || inputInt > max)
         {
             do
             {
-                inputString = ReadString(prompt, errorMsg, true);
+                inputString = ReadString(
+                prompt: prompt,
+                errorMsg: errorMsg,
+                showError: true,
+                keyEntry: keyEntry
+                );
             } while (!int.TryParse(inputString, out inputInt) || inputInt < min || inputInt > max);
         }
         return inputInt;
@@ -61,7 +74,8 @@ public class Tools
             min: 0,
             max: 1,
             prompt: prompt,
-            errorMsg: errorMsg
+            errorMsg: errorMsg,
+            keyEntry: true
         );
         switch (inputInt)
         {
@@ -72,24 +86,9 @@ public class Tools
                 inputBool = true;
                 return inputBool;
             default:
-                DisplayManager.DisplayPrompt("An error has occured. Returning false.");
+                DisplayManager.ShowMsg("An error has occured. Returning false.");
                 inputBool = false;
                 return inputBool;
         }
-    }
-    // - Method for decoupling main game logic from UI elements -
-    public static string StringInputHandler()
-    {
-        return Console.ReadLine();
-    }
-    // - Method for decoupling main game logic from UI elements -
-    public static ConsoleKeyInfo CharInputHandler()
-    {
-        return Console.ReadKey();
-    }
-    // - Method for decoupling main game logic from UI elements -
-    public static void OutputHandler(string message)
-    {
-        Console.WriteLine(message);
     }
 }

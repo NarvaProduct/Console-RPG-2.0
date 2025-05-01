@@ -16,7 +16,7 @@ namespace Menu
                 "Roll a Dice"
             };
 
-            int userChoice = DisplayManager.DisplayMenu(
+            int userChoice = DisplayManager.ShowMenu(
                 menuTitle: menuTitle,
                 options: options,
                 zeroOption: "Exit Game"

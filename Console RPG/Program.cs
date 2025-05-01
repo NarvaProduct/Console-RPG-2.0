@@ -5,7 +5,7 @@ public class Program
     
     public static void Main(string[] args)
     {
-        //GameMenu.MainGameMenu();
-        Dice.RollDCustom(6);
+        GameMenu.MainGameMenu();
+        //Dice.RollDCustom(6);
     }
 }

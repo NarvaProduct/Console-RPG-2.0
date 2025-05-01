@@ -7,19 +7,25 @@ public class Dice
         string loadingAnimation = "";
 
         Random random = new Random();
-        int diceResult = random.Next(amountSides);
+        int diceResult = random.Next(1, amountSides);
 
         for (int i = 0; i <= 3; i++) // Waits 3 seconds before result is displayed
         {
             Thread.Sleep(1000);
             loadingAnimation = loadingAnimation + ".";
-            DisplayManager.DisplayText(
+            DisplayManager.ShowMsg(
                 diceRollPrompt,
                 loadingAnimation,
-                showSecondary: true);
+                showSecondary: true,
+                waitForKey: false
+                );
         }
 
-        DisplayManager.DisplayPrompt($"\nThe dice rolled a {diceResult}!", "Press enter to continue");
+        DisplayManager.ShowMsg(
+            msg: $"The dice rolled a {diceResult}!",
+            secondaryMsg: "Press enter to continue",
+            showSecondary: true,
+            waitForKey: true);
 
         return diceResult;
     }
