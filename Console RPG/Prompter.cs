@@ -1,5 +1,4 @@
-using system;
-using static InputHandling.InputValidator;
+using static InputHandling.Validator;
 namespace InputHandling
 {
     public class Prompter
@@ -28,6 +27,7 @@ namespace InputHandling
             }
         // - Helper method for getting a integer input with validation, custom prompt, and custom error message. If askForKey is true, input will be a single character -
         public static int AskForInt(
+            int min, int max,
             string prompt = "Please enter an integer",
             string errorMsg = "Invalid integer. Please try again",
             bool askForKey = false
@@ -38,23 +38,42 @@ namespace InputHandling
             int intValue;
 
             UserInterface.ShowMsg(prompt);
-            if (!askForKey) inputString = UserInterface.AskLn();
-            if (askForKey) // Differentiates whether 
+            if (!askForKey)
+            {
+                inputString = UserInterface.AskLn();
+
+                if (!ValidateInt(inputString, out intValue) || intValue < min || intValue > max)
+                {
+                    UserInterface.ShowMsg(prompt + "\n" + errorMsg);
+                    inputString = UserInterface.AskLn();
+                    while (!ValidateInt(inputString, out intValue) || intValue < min || intValue > max) // While loop starts after error message to not clear console each re-entry
+                    {
+                        inputString = UserInterface.AskLn();
+                    }
+                }
+
+                return intValue;
+            } 
+            else
             {
                 inputKey = UserInterface.AskKey();
                 inputString = KeyToString(inputKey);
-            }
 
-            if (!ValidateInt(inputString, out intValue))
-            {
-                UserInterface.ShowMsg(prompt + "\n" + errorMsg);
-                inputString = UserInterface.AskLn();
-                while (!ValidateInt(inputString, out intValue)) // While loop starts after error message to not clear console each re-entry
+                if (!ValidateInt(inputString, out intValue) || intValue < min || intValue > max)
                 {
-                    inputString = UserInterface.AskLn();
+                    UserInterface.ShowMsg(prompt + "\n" + errorMsg);
+                    inputKey = UserInterface.AskKey();
+                    inputString = KeyToString(inputKey);
+
+                    while (!ValidateInt(inputString, out intValue) || intValue < min || intValue > max) // While loop starts after error message to not clear console each re-entry
+                    {
+                        inputKey = UserInterface.AskKey();
+                        inputString = KeyToString(inputKey);
+                    }
                 }
-            }
-            return intValue;
+
+                return intValue;
+            } 
         }
         // - Helper method for getting a boolean input with validation, custom prompt, and custom error message -
         public static bool AskForBool(
@@ -113,8 +132,9 @@ namespace InputHandling
             optionListString = optionListString + "\n0. " + zeroOption; // Displays 0 option at the bottom of the list
 
             userChoice = AskForInt(
+                min: 0, max: numOptions - 1, 
                 prompt: optionListString,
-                errorMsg: $"Invalid Entry. Please enter an option between 0 - {numOptions}",
+                errorMsg: $"Invalid Entry. Please enter an option between 0 - {numOptions - 1}",
                 askForKey: true
                 );
 

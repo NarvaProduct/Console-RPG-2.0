@@ -1,5 +1,4 @@
-﻿using Menu;
-public class Program
+﻿public class Program
 {
     public static void Main(string[] args)
     {
@@ -7,7 +6,6 @@ public class Program
         {
             int userInput = GameMenu.MainGameMenu();
             if (userInput == 5) Dice.RollDCustom(6);
-            else break;
         }
     }
 }

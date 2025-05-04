@@ -6,9 +6,7 @@ namespace InputHandling
         public static string KeyToString(ConsoleKeyInfo key)
         {
             string keyString;
-
-            key = Console.ReadKey(intercept: true);
-            keyString = key.ToString();
+            keyString = key.KeyChar.ToString();
 
             return keyString;
         }

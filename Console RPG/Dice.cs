@@ -16,7 +16,7 @@ public class Dice
             UserInterface.ShowMsg(diceRollPrompt + loadingAnimation);
         }
 
-        UserInterface.ShowMsg(diceRollPrompt + loadingAnimation);
+        UserInterface.ShowMsg($"You rolled a {diceResult}!", waitForKey: true);
 
         return diceResult;
     }

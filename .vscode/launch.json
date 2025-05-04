@@ -1,0 +1,16 @@
+// .vscode/launch.json
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Launch Console RPG (with ReadKey)",
+        "type": "coreclr",                // legacy debugger
+        "request": "launch",
+        "preLaunchTask": "build",         // see tasks.json below
+        "program": "${workspaceFolder}/Console RPG/bin/Debug/net9.0/Console RPG.dll",
+        "cwd": "${workspaceFolder}/Console RPG",
+        "console": "integratedTerminal",  // ← makes ReadKey() work
+        "internalConsoleOptions": "neverOpen"
+      }
+    ]
+  }

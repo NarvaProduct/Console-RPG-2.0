@@ -1,4 +1,4 @@
-using InputHandling.Prompter;
+using static InputHandling.Prompter;
 public class GameMenu
 {
     // - Method for displaying main menu screen -
@@ -15,7 +15,7 @@ public class GameMenu
             "Roll a Dice"
         };
 
-        int userChoice = InputHandler(
+        int userChoice = ShowMenu(
             menuTitle: menuTitle,
             options: options,
             zeroOption: "Exit Game"
