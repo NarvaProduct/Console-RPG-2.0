@@ -1,8 +1,6 @@
-﻿using System.IO;
-using Menu;
+﻿using Menu;
 public class Program
 {
-    
     public static void Main(string[] args)
     {
         while (true)
@@ -11,8 +9,5 @@ public class Program
             if (userInput == 5) Dice.RollDCustom(6);
             else break;
         }
-
-
-        
     }
 }

@@ -13,20 +13,10 @@ public class Dice
         {
             Thread.Sleep(1000);
             loadingAnimation = loadingAnimation + ".";
-            DisplayManager.ShowMsg(
-                diceRollPrompt,
-                loadingAnimation,
-                showSecondary: true,
-                waitForKey: false
-                );
+            UserInterface.ShowMsg(diceRollPrompt + loadingAnimation);
         }
 
-        DisplayManager.ShowMsg(
-            msg: $"The dice rolled a {diceResult}!",
-            secondaryMsg: "Press enter to continue",
-            showSecondary: true,
-            waitForKey: true
-            );
+        UserInterface.ShowMsg(diceRollPrompt + loadingAnimation);
 
         return diceResult;
     }

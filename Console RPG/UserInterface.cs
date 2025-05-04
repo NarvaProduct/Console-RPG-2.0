@@ -1,0 +1,33 @@
+public class UserInterface
+{
+    // - Method for displaying a message -
+    public static void ShowMsg(string msg)
+    {
+        ClearConsole();
+        Console.WriteLine(msg);
+    }
+    // - Method for requesting user input as a line -
+    public static string AskLn()
+    {
+        string inputString;
+
+        inputString = Console.ReadLine();
+        return inputString;
+    }
+    // - Mehtod for requesting key input -
+        public static ConsoleKeyInfo AskKey()
+    {
+        ConsoleKeyInfo key;
+
+        key = Console.ReadKey(intercept: true);
+        return key;
+    }
+    // - Method for skipping Console.Clear() in debug mode -
+    public static void ClearConsole()
+    {
+        if (!Console.IsOutputRedirected)
+        {
+            Console.Clear();
+        }
+    }
+}
