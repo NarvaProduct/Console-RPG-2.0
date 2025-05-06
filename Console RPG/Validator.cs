@@ -64,7 +64,7 @@ namespace InputHandling
 
             stringValidity = ValidateString(inputString);
             intValidity = ValidateInt(inputString, out intValue);
-            if (intValue != 0 || intValue != 1)
+            if (intValue != 0 && intValue != 1)
             {
                 boolValue = false;
                 boolValidity = false;
