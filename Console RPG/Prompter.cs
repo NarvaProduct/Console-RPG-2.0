@@ -106,7 +106,7 @@ namespace InputHandling
         public static int ShowMenu(
             string menuTitle,
             string[] options,
-            string zeroOption = "go back"
+            string zeroOption = "Go Back"
             )
         {
             string titleDivider = "";
@@ -115,6 +115,7 @@ namespace InputHandling
             int numOptions;
             int titleLength;
 
+            menuTitle = $"=== {menuTitle} ===";
             numOptions = options.Length;
             titleLength = menuTitle.Length;
 

@@ -1,27 +1,41 @@
 using static InputHandling.Prompter;
-public class GameMenu
+
+namespace Menu
 {
-    // - Method for displaying main menu screen -
-    public static int MainGameMenu()
+    public class MainMenu
     {
-        string menuTitle = "=== Welcome to Console-RPG V2.0! ===";
-        string[] options = new string[]
+        // - Method for displaying main menu screen -
+        public static MainMenuOption ShowMainMenu()
         {
-            null,
-            "Start New Game",
-            "Load Game",
-            "Manage Save",
-            "About",
-            "Roll a Dice"
-        };
+            string menuTitle = "Welcome to Console-RPG V2.0!";
+            string[] options = new string[]
+            {
+                null,
+                "Start New Game",
+                "Load Game",
+                "Manage Save",
+                "About",
+                "Roll a Dice"
+            };
 
-        int userChoice = ShowMenu(
-            menuTitle: menuTitle,
-            options: options,
-            zeroOption: "Exit Game"
-            );
+            int userChoice = ShowMenu(
+                menuTitle: menuTitle,
+                options: options,
+                zeroOption: "Exit Game"
+                );
 
-        return userChoice;
+            return (MainMenuOption)userChoice;
+        }
     }
+
+}
+public enum MainMenuOption
+{
+    Exit,
+    StartNewGame,
+    LoadGame,
+    ManageSave,
+    About,
+    RollADice
 }
 
