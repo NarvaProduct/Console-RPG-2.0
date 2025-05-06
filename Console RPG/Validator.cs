@@ -62,9 +62,6 @@ namespace InputHandling
             int intValue;
 
             intValidity = ValidateInt(inputString, out intValue);
-<<<<<<< HEAD
-            if (intValue != 0 && intValue != 1)
-=======
             if (intValidity)
             {
                 if (intValue != 0 || intValue != 1)
@@ -87,7 +84,6 @@ namespace InputHandling
                 }
             }
             else
->>>>>>> d387c83ab334856a9c759a09ab39e1f931dbb156
             {
                 boolValue = false;
                 boolValidity = false;
