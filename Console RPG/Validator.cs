@@ -57,29 +57,40 @@ namespace InputHandling
         // Default for boolValue will be false if validation fails
         public static bool ValidateBool(string inputString, out bool boolValue)
         {
-            bool stringValidity;
             bool intValidity;
             bool boolValidity;
             int intValue;
 
-            stringValidity = ValidateString(inputString);
             intValidity = ValidateInt(inputString, out intValue);
+<<<<<<< HEAD
             if (intValue != 0 && intValue != 1)
+=======
+            if (intValidity)
+            {
+                if (intValue != 0 || intValue != 1)
+                {
+                    boolValue = false;
+                    boolValidity = false;
+                    return boolValidity;
+                }
+                else if (intValue == 0)
+                {
+                    boolValue = false;
+                    boolValidity = true;
+                    return boolValidity;
+                }
+                else
+                {
+                    boolValue = true;
+                    boolValidity = true;
+                    return boolValidity;
+                }
+            }
+            else
+>>>>>>> d387c83ab334856a9c759a09ab39e1f931dbb156
             {
                 boolValue = false;
                 boolValidity = false;
-                return boolValidity;
-            }
-            else if (intValue == 0)
-            {
-                boolValue = false;
-                boolValidity = true;
-                return boolValidity;
-            }
-            else
-            {
-                boolValue = true;
-                boolValidity = true;
                 return boolValidity;
             }
         }
