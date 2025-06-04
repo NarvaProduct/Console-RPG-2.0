@@ -42,7 +42,7 @@ public class Menu<T> where T : struct, Enum
         int intUserChoice = Prompter.AskForInt(
             min: 0, max: numOptions,
             prompt: menuString,
-            errorMsg: $"Invalid Entry. Please enter an option between 0 - {numOptions - 1}",
+            errorMsg: $"Invalid Entry. Please enter an option between 0 - {numOptions}",
             askForKey: true
         ) - 1; // subtracts one from the int input to account for zero option
 

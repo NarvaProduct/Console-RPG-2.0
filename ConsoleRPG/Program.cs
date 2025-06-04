@@ -10,13 +10,6 @@ public class Program
 
         Donuts? donut = menu.ShowMenu();
 
-
-
-
-
-
-
-
         Type type = donut.GetType();
         string typeName = type.Name;
         UserInterface.ShowMsg($"You chose {donut}! The donut variable is of type {typeName}");
