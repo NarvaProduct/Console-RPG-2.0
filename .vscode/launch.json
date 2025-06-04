@@ -7,8 +7,8 @@
         "type": "coreclr",                // legacy debugger
         "request": "launch",
         "preLaunchTask": "build",         // see tasks.json below
-        "program": "${workspaceFolder}/Console RPG/bin/Debug/net9.0/Console RPG.dll",
-        "cwd": "${workspaceFolder}/Console RPG",
+        "program": "${workspaceFolder}/ConsoleRPG/bin/Debug/net9.0/ConsoleRPG.dll",
+        "cwd": "${workspaceFolder}/ConsoleRPG",
         "console": "integratedTerminal",  // ← makes ReadKey() work
         "internalConsoleOptions": "neverOpen"
       }

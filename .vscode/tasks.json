@@ -8,7 +8,7 @@
         "type": "process",
         "args": [
           "build",
-          "${workspaceFolder}/Console RPG/Console RPG.csproj"
+          "${workspaceFolder}/ConsoleRPG/ConsoleRPG.csproj"
         ],
         "problemMatcher": "$msCompile"
       }
