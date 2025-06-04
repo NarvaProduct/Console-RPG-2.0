@@ -67,7 +67,6 @@ public class Menu<T> where T : struct, Enum
     {
         string titleDivider = "";
         string menuTitle = "";
-
         string header = $"=== {Title} ===";
         int titleLength = header.Length;
 
