@@ -35,7 +35,7 @@ public class Prompter
         bool askForKey = false
     )
     {
-        string inputString = "";
+        string inputString;
         ConsoleKeyInfo inputKey;
         int intValue;
 

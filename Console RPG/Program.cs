@@ -14,8 +14,6 @@ public class Program
         UserInterface.ShowMsg($"You chose {donut}! The donut variable is of type {typeName}");
     }
 }
-
-
 public enum Donuts
 {
     Glazed,
