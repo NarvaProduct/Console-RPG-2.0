@@ -1,39 +1,30 @@
 using System.ComponentModel.DataAnnotations;
 using System.Reflection.Metadata.Ecma335;
-using InputHandling;
+using ConsoleRPG.InputHandling;
+using ConsoleRPG.Utils;
+
+namespace ConsoleRPG.Menus;
 
 public class Menu<T> where T : struct, Enum
 {
-    private string _title;
-    private T[] _options;
-    private MenuControl _zeroOption;
+    public string Title { get; private set; }
+    public string InfoTextA { get; private set; }
+    public string InfoTextB { get; private set; }
+    public T[] Options { get; private set; }
+    public string ZeroOption { get; private set; }
 
-    public string Title
-    {
-        get => _title;
-        set => _title = value;
-    }
-
-    public T[] Options
-    {
-        get => _options;
-        set => _options = value;
-    }
-
-    public MenuControl ZeroOption
-    {
-        get => _zeroOption;
-        set => _zeroOption = value;
-    }
-
-    public Menu(string title, T[] options, MenuControl zeroOption)
+    public Menu(string title, T[] options, string zeroOption, string infoTextA = "", string infoTextB = "")
     {
         Title = title;
+        InfoTextA = infoTextA;
+        InfoTextB = infoTextB;
         Options = options;
         ZeroOption = zeroOption;
     }
+
     // - Method for displaying a decision menu -
     // Returns the enum value of the user's choice
+    // If 0 option is selected, returns null
     public T? ShowMenu()
     {
         string menuString = BuildMenuString();
@@ -51,36 +42,75 @@ public class Menu<T> where T : struct, Enum
         else
             return null;
     }
+
+    // - Builds the string that will be displayed for completed menu -
+    // Variable divider creates a new line (------\n)
     private string BuildMenuString()
     {
-        string menuString = BuildMenuTitle();
-
-        for (int i = 0; i < Options.Length; i++)
-            menuString += $"\n{i + 1}. {Options[i]}";
-            
-        menuString += $"\n0. {ZeroOption}"; // Displays 0 option at the bottom of the list
+        string menuTitle = BuildMenuTitle(out string divider);
+        string infoText = BuildInfoText(divider, InfoTextA, InfoTextB);
+        string optionString = BuildOptionString();
+        
+        string menuString = menuTitle + infoText + optionString;
 
         return menuString;
     }
-    private string BuildMenuTitle()
-    {
-        string titleDivider = "";
-        string menuTitle = "";
-        string header = $"=== {Title} ===";
-        int titleLength = header.Length;
 
-        for (int i = 0; i < titleLength; i++) // Decides the length of the divider
-        {
-            titleDivider += "-";
-        }
-        menuTitle += $"{header}\n{titleDivider}"; // Adds divider to the line under the title
+    // - Builds string for the title of the menu - 
+    // Creates fancy header with a divider and a line break
+    private string BuildMenuTitle(out string divider)
+    {
+        string header = $"=== {Title} ===";
+        divider = BuildDivider(header);
+
+        string menuTitle = $"{header}\n{divider}"; // Adds divider to the line under the title
 
         return menuTitle;
     }
-    public enum MenuControl
+
+    // - Builds string for optional info text with an optional secondary info text -
+    // The strings stringA and stringB end with a divider and a line break
+    private string BuildInfoText(string divider, string stringA, string stringB)
     {
-        GoBack,
-        Exit,
-        Cancel
+        string infoText = "";
+
+        if (stringA != "") infoText = stringA + divider;     
+        if (stringB != "") infoText += stringB + divider;
+
+        return infoText;
+    }
+
+    // - Builds string for the possible option selections -
+    private string BuildOptionString()
+    {
+        string optionListString = "";
+        string optionString;
+        string splitOptionString;
+
+        for (int i = 0; i < Options.Length; i++)
+        {
+            optionString = Options[i].ToString();
+            splitOptionString = StringFormatter.SplitStringByCapitals(optionString);
+            optionListString = $"{i + 1}. {splitOptionString}\n";
+        }
+            
+        optionListString += $"0. {ZeroOption}\n"; // Displays 0 option at the bottom of the list
+
+        return optionListString;
+    }
+
+    // - Helper method that builds a divider string based on length of string input -
+    // Adds a line break after divider
+    private static string BuildDivider(string inputString)
+    {
+        string divider = "";
+
+        for (int i = 0; i < inputString.Length; i++) // Decides the length of the divider
+        {
+            divider += "-";
+        }
+        divider += "\n";
+
+        return divider;
     }
 }
