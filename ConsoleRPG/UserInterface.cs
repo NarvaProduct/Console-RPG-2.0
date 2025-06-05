@@ -1,16 +1,16 @@
 public class UserInterface
 {
     // - Method for displaying a message -
-    public static void ShowMsg(string msg, bool waitForKey = false)
+    public static void ShowMsg(string msg, bool waitForKey = false, bool clearConsole = true)
     {
-        ClearConsole();
+        if(clearConsole) ClearConsole();
+
         Console.WriteLine(msg);
         if (waitForKey)
         {
             Console.WriteLine("Press any key to continue");
             Console.ReadKey();
         }
-        
     }
     // - Method for requesting user input as a line -
     public static string AskLn()

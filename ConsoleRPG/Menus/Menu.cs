@@ -56,9 +56,8 @@ public class Menu<T> where T : struct, Enum
         string menuString = BuildMenuTitle();
 
         for (int i = 0; i < Options.Length; i++)
-        {
             menuString += $"\n{i + 1}. {Options[i]}";
-        }
+            
         menuString += $"\n0. {ZeroOption}"; // Displays 0 option at the bottom of the list
 
         return menuString;
