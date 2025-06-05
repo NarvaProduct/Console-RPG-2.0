@@ -1,7 +1,6 @@
-using System.Reflection.Metadata.Ecma335;
 using ConsoleRPG.Components;
 
-namespace ConsoleRPG;
+namespace ConsoleRPG.Entities;
 
 public class GameEntity
 {

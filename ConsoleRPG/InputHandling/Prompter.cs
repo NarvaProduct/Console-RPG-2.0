@@ -1,6 +1,6 @@
-using static InputHandling.Validator;
+using static ConsoleRPG.InputHandling.Validator;
 
-namespace InputHandling;
+namespace ConsoleRPG.InputHandling;
 
 public class Prompter
 {
@@ -84,7 +84,6 @@ public class Prompter
     )
     {
         string inputString;
-        int intValue;
         bool boolValue;
 
         UserInterface.ShowMsg(prompt);

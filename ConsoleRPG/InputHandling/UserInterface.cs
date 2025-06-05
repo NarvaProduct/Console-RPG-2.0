@@ -1,9 +1,11 @@
+namespace ConsoleRPG.InputHandling;
+
 public class UserInterface
 {
     // - Method for displaying a message -
     public static void ShowMsg(string msg, bool waitForKey = false, bool clearConsole = true)
     {
-        if(clearConsole) ClearConsole();
+        if (clearConsole) ClearConsole();
 
         Console.WriteLine(msg);
         if (waitForKey)
@@ -21,7 +23,7 @@ public class UserInterface
         return inputString;
     }
     // - Mehtod for requesting key input -
-        public static ConsoleKeyInfo AskKey()
+    public static ConsoleKeyInfo AskKey()
     {
         ConsoleKeyInfo key;
 

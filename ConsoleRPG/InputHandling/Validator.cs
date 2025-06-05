@@ -1,4 +1,4 @@
-namespace InputHandling;
+namespace ConsoleRPG.InputHandling;
 
 public class Validator
 {
@@ -10,6 +10,7 @@ public class Validator
 
         return keyString;
     }
+    
     // - Method for validating strings -
     public static bool ValidateString(string inputString)
     {

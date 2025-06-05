@@ -1,5 +1,3 @@
-using System.ComponentModel.DataAnnotations;
-using System.Reflection.Metadata.Ecma335;
 using ConsoleRPG.InputHandling;
 using ConsoleRPG.Utils;
 
@@ -74,8 +72,8 @@ public class Menu<T> where T : struct, Enum
     {
         string infoText = "";
 
-        if (stringA != "") infoText = stringA + divider;     
-        if (stringB != "") infoText += stringB + divider;
+        if (!string.IsNullOrEmpty(stringA)) infoText += $"{stringA}\n" + divider;     
+        if (!string.IsNullOrEmpty(stringB)) infoText += $"{stringB}\n" + divider;
 
         return infoText;
     }
@@ -91,10 +89,10 @@ public class Menu<T> where T : struct, Enum
         {
             optionString = Options[i].ToString();
             splitOptionString = StringFormatter.SplitStringByCapitals(optionString);
-            optionListString = $"{i + 1}. {splitOptionString}\n";
+            optionListString += $"{i + 1}. {splitOptionString}\n";
         }
             
-        optionListString += $"0. {ZeroOption}\n"; // Displays 0 option at the bottom of the list
+        optionListString += $"0. {ZeroOption}"; // Displays 0 option at the bottom of the list
 
         return optionListString;
     }

@@ -1,3 +1,7 @@
+using ConsoleRPG.InputHandling;
+
+namespace ConsoleRPG.Utils;
+
 public class Dice
 {
     // - Method for rolling a custom sided dice -

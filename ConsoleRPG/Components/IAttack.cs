@@ -1,4 +1,4 @@
-using ConsoleRPG.Components;
+using ConsoleRPG.Entities;
 
 namespace ConsoleRPG.Components;
 
