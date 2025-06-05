@@ -1,0 +1,22 @@
+# Build artifacts
+bin/
+obj/
+*.exe
+*.dll
+*.app
+*.log
+
+# VS Code settings
+.vscode/
+
+# User-specific files
+*.user
+*.suo
+
+# OS-specific junk
+.DS_Store
+Thumbs.db
+
+# Rider/JetBrains
+.idea/
+*.sln.iml
