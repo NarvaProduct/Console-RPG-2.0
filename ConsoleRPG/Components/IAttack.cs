@@ -7,4 +7,5 @@ public interface IAttack
     int Damage { get; }
 
     void PerformAttack(GameEntity target);
+    int CalculateDamage(GameEntity target);
 }

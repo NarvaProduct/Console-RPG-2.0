@@ -12,6 +12,27 @@ public class Program
     public static void Main(string[] args)
     {
         Console.CursorVisible = false;
-        new MainMenu().Show();
+        Console.Title = GameSettings.GameTitle;
+        
+        // GameManager.Run();
+        GameEntity player = new GameEntity(
+            name: "Player",
+            health: new BasicHealth(100),
+            attack: new BasicAttack(50),
+            defense: new BasicDefense()
+            );
+
+        GameEntity enemy = new GameEntity(
+            name: "Enemy",
+            health: new BasicHealth(100),
+            attack: new BasicAttack(50),
+            defense: new BasicDefense()
+            );
+
+        BattleMenu battleMenu = new BattleMenu(
+            title: "Battle", player, enemy
+            );
+
+        battleMenu.Show();
     }
 }

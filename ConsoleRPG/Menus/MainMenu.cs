@@ -1,7 +1,7 @@
 
 using ConsoleRPG.Entities;
 using ConsoleRPG.InputHandling;
-using Microsoft.VisualBasic;
+using ConsoleRPG.Utils;
 
 namespace ConsoleRPG.Menus;
 
@@ -14,16 +14,16 @@ public class MainMenu
         ManageSaves,
         About
     }
-    
+
     private Menu<MainMenuControls>? Menu { get; set; }
 
     public MainMenu()
     {
         Menu = new Menu<MainMenuControls>(
-            title: "Console-RPG Main Menu",
+            title: GameSettings.GameTitle,
             options: Enum.GetValues<MainMenuControls>(),
             zeroOption: "Exit Game",
-            infoTextA: "Game Version 1.0");
+            infoTextA: $"Version: {GameSettings.Version}");
     }
 
     public void Show()

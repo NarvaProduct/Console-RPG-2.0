@@ -33,7 +33,7 @@ public class Menu<T> where T : struct, Enum
             prompt: menuString,
             errorMsg: $"Invalid Entry. Please enter an option between 0 - {numOptions}",
             askForKey: true
-        ) - 1; // subtracts one from the int input to account for zero option
+            ) - 1; // subtracts one from the int input to account for zero option
 
         if (intUserChoice >= 0)
             return (T)Enum.ToObject(typeof(T), intUserChoice);
@@ -91,7 +91,7 @@ public class Menu<T> where T : struct, Enum
             splitOptionString = StringFormatter.SplitStringByCapitals(optionString);
             optionListString += $"{i + 1}. {splitOptionString}\n";
         }
-            
+
         optionListString += $"0. {ZeroOption}"; // Displays 0 option at the bottom of the list
 
         return optionListString;
@@ -105,7 +105,7 @@ public class Menu<T> where T : struct, Enum
 
         for (int i = 0; i < inputString.Length; i++) // Decides the length of the divider
         {
-            divider += "-";
+            divider += GameSettings.DividerChar;
         }
         divider += "\n";
 

@@ -6,12 +6,15 @@ public class GameEntity
 {
     public string Name { get; private set; }
     public IHealth Health { get; private set; }
-    public IAttack? Attack { get; private set; }
-    public GameEntity(string name, IHealth health, IAttack attack)
+    public IAttack Attack { get; private set; }
+    public IDefense Defense{ get; private set; }
+
+    public GameEntity(string name, IHealth health, IAttack attack, IDefense defense)
     {
         Name = name;
         Health = health;
         Attack = attack;
+        Defense = defense;
     }
     public void ReceiveDamage(int amount)
     {
