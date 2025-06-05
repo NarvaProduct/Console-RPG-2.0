@@ -1,0 +1,19 @@
+# Ignore build output
+bin/
+obj/
+
+# Ignore VS Code settings
+.vscode/
+
+# Ignore user-specific files
+*.user
+*.suo
+
+# Ignore temporary files
+*.log
+*.tmp
+*.bak
+
+# OS junk
+.DS_Store
+Thumbs.db
