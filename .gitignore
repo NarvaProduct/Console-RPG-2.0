@@ -1,22 +1,19 @@
-# Build artifacts
+# Ignore build output
 bin/
 obj/
-*.exe
-*.dll
-*.app
-*.log
 
-# VS Code settings
+# Ignore VS Code settings
 .vscode/
 
-# User-specific files
+# Ignore user-specific files
 *.user
 *.suo
 
-# OS-specific junk
+# Ignore temporary files
+*.log
+*.tmp
+*.bak
+
+# OS junk
 .DS_Store
 Thumbs.db
-
-# Rider/JetBrains
-.idea/
-*.sln.iml
